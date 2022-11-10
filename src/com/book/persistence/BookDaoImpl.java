@@ -2,6 +2,7 @@ package com.book.persistence;
 
 import java.util.Collection;
 
+import com.book.database.BookDatabase;
 import com.book.entity.Book;
 
 public class BookDaoImpl implements BookDao{
@@ -10,20 +11,17 @@ public class BookDaoImpl implements BookDao{
 
 	@Override
 	public Collection<Book> getAllBooks() {
-		// TODO Auto-generated method stub
-		return null;
+		return BookDatabase.getBookList().values();
 	}
 
 	@Override
 	public Book searchBook(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return BookDatabase.getBookList().get(id);
 	}
 
 	@Override
 	public Book insertBook(Book book) {
-		// TODO Auto-generated method stub
-		return null;
+		return BookDatabase.getBookList().put(book.getBookId(), book);
 	}
 
 }

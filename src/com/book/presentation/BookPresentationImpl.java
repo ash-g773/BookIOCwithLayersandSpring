@@ -1,7 +1,9 @@
 package com.book.presentation;
 
+import java.util.Collection;
 import java.util.Scanner;
 
+import com.book.entity.Book;
 import com.book.service.BookService;
 
 public class BookPresentationImpl implements BookPresentation {
@@ -30,19 +32,44 @@ public class BookPresentationImpl implements BookPresentation {
 		
 		switch(choice) {
 			case 1:
-				System.out.println("List all books - tbi");
+				Collection<Book> books = bookService.getAllBooks();
+				for (Book book : books) {
+					System.out.println(book);
+				}
 				break;
 			case 2:
-				System.out.println("search book by id - tbi");
+				System.out.println("Enter Book ID :");
+				int id = scr.nextInt();
+				Book book = bookService.searchBookById(id);
+				if (book!=null) {
+					System.out.println(book);
+				} else {
+					System.out.println(id + " book doesnt exist");
+				}
 				break;
 			case 3:
-				System.out.println("add new book - tbi");
+				Book newBook = new Book();
+				
+				System.out.println("Enter Book ID :");
+				newBook.setBookId(scr.nextInt());
+				System.out.println("Enter Book title");
+				newBook.setBookName(scr.next());
+				System.out.println("Enter Author name");
+				newBook.setAuthorName(scr.next());
+				System.out.println("Enter num copies");
+				newBook.setNoOfCopies(scr.nextInt());
+				
+				if (bookService.addNewBook(newBook))
+					System.out.println("book added");
+				else
+					System.out.println("book " + newBook.getBookId() + "exists");
 				break;
 			case 4:
 				System.out.println("Thanks for using the book system!");
-				break;
+				System.exit(0); //why is it 0
 			default:
-				System.out.println("unknown input");			
+				System.out.println("unknown input");
+				break;
 				
 	}
 	}

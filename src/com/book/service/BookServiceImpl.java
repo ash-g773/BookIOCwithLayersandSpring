@@ -15,20 +15,27 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public Collection<Book> getAllBooks() {
-		// TODO Auto-generated method stub
-		return null;
+		return bookDao.getAllBooks();
 	}
 
 	@Override
 	public Book searchBookById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+//		Collection<Book> books = getAllBooks();
+//		for(Book book : books) {
+//			if (book.getBookId() == id)
+//				return book;
+//		} else 
+		return bookDao.searchBook(id);
 	}
 
 	@Override
 	public boolean addNewBook(Book book) {
-		// TODO Auto-generated method stub
-		return false;
+		Book bk = bookDao.searchBook(book.getBookId()); //checking if book exists
+		if (bk!= null) {
+			return false;
+		}
+		bookDao.insertBook(book);
+		return true;
 	}
 
 	

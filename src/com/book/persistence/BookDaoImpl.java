@@ -7,7 +7,7 @@ import com.book.entity.Book;
 
 public class BookDaoImpl implements BookDao{
 	
-	//no constructor?
+	//no constructor? - dao doesn't need a constructor because it doesnt depend on any other layer (?)
 
 	@Override
 	public Collection<Book> getAllBooks() {

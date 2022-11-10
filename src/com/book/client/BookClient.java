@@ -22,5 +22,7 @@ public class BookClient {
 			bookPresentation.performMenu(choice);
 		}
 		
+		//the order of construction is DAO (Persistence) >> Service >> Presentation
+		
 	}
 }

@@ -66,7 +66,7 @@ public class BookPresentationImpl implements BookPresentation {
 				break;
 			case 4:
 				System.out.println("Thanks for using the book system!");
-				System.exit(0); //why is it 0
+				System.exit(0); //why is it 0 - exits the system with internal message that code was run successfully
 			default:
 				System.out.println("unknown input");
 				break;

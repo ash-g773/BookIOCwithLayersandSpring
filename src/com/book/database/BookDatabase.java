@@ -7,7 +7,7 @@ import com.book.entity.Book;
 
 public class BookDatabase {
 	//keeps data persistent by only having one copy of it (static - only one instance allowed)
-	static private Map<Integer, Book> bookList = new LinkedHashMap<Integer, Book>(); //why is this static private
+	static private Map<Integer, Book> bookList = new LinkedHashMap<Integer, Book>();
 	
 	static {
 		bookList.put(101, new Book(101, "Book One", "Author One", 10));

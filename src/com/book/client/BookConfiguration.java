@@ -13,7 +13,7 @@ public class BookConfiguration {
 	@Bean(name="dao")
 	public BookDaoImpl getPersistence() {
 		//constructor injection?
-		return new BookDaoImpl(); //why is there nothing in the brackets
+		return new BookDaoImpl(); //why is there nothing in the brackets - this is the 
 	}
 	
 	@Bean(name="service")
@@ -27,5 +27,5 @@ public class BookConfiguration {
 		presentation.setBookService(getBookService()); //getBookService?
 		return presentation;
 	}
-	//returns everything backwards?
+	//returns everything backwards - in the client file the presentation implementation file is called, which then here calls everything else
 }
